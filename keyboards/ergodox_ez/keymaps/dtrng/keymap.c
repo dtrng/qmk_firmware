@@ -8,7 +8,12 @@ enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
   EPRM,
   RGB_SLD,
-  
+  AA,
+  AE,
+  OSLH,
+  TO_WIN,
+  TO_MAC,
+  TO_LINUX
 };
 
 #undef NO_AA
@@ -20,12 +25,79 @@ enum custom_keycodes {
 #undef NO_OSLH
 #define NO_OSLH 0xF6
 
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_ergodox(KC_EQUAL,KC_1,KC_2,KC_3,KC_4,KC_5,KC_LEFT,KC_DELETE,KC_Q,KC_W,KC_E,KC_R,KC_T,TG(1),CTL_T(KC_ESCAPE),KC_A,KC_S,KC_D,KC_F,KC_G,SFT_T(KC_TILD),CTL_T(KC_Z),KC_X,KC_C,KC_V,KC_B,MT(MOD_HYPR, KC_NO),LT(1,KC_GRAVE),ALT_T(KC_QUOTE),KC_LGUI,LT(1,KC_LEFT),LT(2,KC_RIGHT),ALT_T(KC_APPLICATION),KC_LGUI,KC_HOME,KC_SPACE,KC_BSPACE,KC_END,KC_RIGHT,KC_6,KC_7,KC_8,KC_9,KC_0,KC_MINUS,TG(1),KC_Y,KC_U,KC_I,KC_O,KC_P,KC_BSLASH,KC_H,KC_J,KC_K,KC_L,LT(2,KC_SCOLON),GUI_T(KC_QUOTE),MT(MOD_MEH, KC_NO),KC_N,KC_M,KC_COMMA,KC_DOT,RCTL_T(KC_SLASH),KC_RSHIFT,LT(2,KC_UP),LT(1,KC_DOWN),KC_RGUI,KC_LALT,MO(1),KC_LALT,CTL_T(KC_ESCAPE),KC_PGUP,KC_PGDOWN,KC_TAB,KC_ENTER),
+  [0] = LAYOUT_ergodox(
+      // left hand
+      KC_EQUAL,              KC_1,            KC_2,     KC_3,           KC_4,           KC_5,   KC_LEFT,
+      KC_ESCAPE,             KC_Q,            KC_W,     KC_E,           KC_R,           KC_T,   TG(1),
+      CTL_T(KC_ESCAPE),      KC_A,            KC_S,     KC_D,           KC_F,           KC_G,
+      SFT_T(KC_TILD),        CTL_T(KC_Z),     KC_X,     KC_C,           KC_V,           KC_B,   MT(MOD_HYPR, KC_NO), 
+      LT(1,KC_GRAVE),        ALT_T(KC_QUOTE), KC_LGUI,  MO(2),          MO(1), 
 
-  [1] = LAYOUT_ergodox(KC_ESCAPE,KC_F1,KC_F2,KC_F3,KC_F4,KC_F5,KC_TRANSPARENT,KC_TRANSPARENT,KC_EXLM,KC_AT,KC_LCBR,KC_RCBR,KC_PIPE,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_DLR,KC_LPRN,KC_RPRN,KC_GRAVE,KC_TRANSPARENT,KC_PERC,KC_CIRC,KC_LBRACKET,KC_RBRACKET,KC_TILD,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,RGB_MOD,KC_TRANSPARENT,KC_TRANSPARENT,RGB_VAD,RGB_VAI,KC_TRANSPARENT,KC_TRANSPARENT,KC_F6,KC_F7,KC_F8,KC_F9,KC_F10,KC_F11,KC_TRANSPARENT,KC_TRANSPARENT,KC_LPRN,KC_RPRN,KC_LBRACKET,KC_RBRACKET,KC_F12,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_BSLASH,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_EQUAL,KC_TRANSPARENT,RGB_TOG,RGB_SLD,KC_TRANSPARENT,KC_TRANSPARENT,RGB_HUD,RGB_HUI),
+                                                                 ALT_T(KC_APPLICATION), KC_LGUI,
+                                                                                        KC_HOME,
+                                                 KC_SPACE,       KC_BSPACE,             KC_END,    
 
-  [2] = LAYOUT_ergodox(KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_MS_UP,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_MS_LEFT,KC_MS_DOWN,KC_MS_RIGHT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,NO_AA,NO_AE,NO_OSLH,KC_TRANSPARENT,KC_TRANSPARENT,KC_LEFT,KC_DOWN,KC_UP,KC_RIGHT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_MS_BTN1,KC_MS_BTN2,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_AUDIO_VOL_DOWN,KC_AUDIO_MUTE,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT),
+      // right hand
+      KC_RIGHT,           KC_6,            KC_7,          KC_8,          KC_9,     KC_0,             KC_MINUS,
+      TG(1),              KC_Y,            KC_U,          KC_I,          KC_O,     KC_P,             KC_BSLASH,
+                          KC_H,            KC_J,          KC_K,          KC_L,     LT(2,KC_SCOLON),  GUI_T(KC_QUOTE),
+      MT(MOD_MEH, KC_NO), KC_N,            KC_M,          KC_COMMA,      KC_DOT,   RCTL_T(KC_SLASH), KC_RSHIFT,
+                                           MO(1),         MO(2),         KC_RGUI,  KC_LALT,          MO(1),
+
+      KC_LALT,            CTL_T(KC_ESCAPE),
+      KC_PGUP,
+      KC_PGDOWN,          KC_TAB,             KC_ENTER
+  ),
+
+  [1] = LAYOUT_ergodox(
+      // left hand
+      KC_ESCAPE,  KC_F1,    KC_F2,    KC_F3,        KC_F4,        KC_F5,    KC_TRNS,
+      KC_TRNS,    KC_EXLM,  KC_AT,    KC_LCBR,      KC_RCBR,      KC_PIPE,  KC_TRNS,
+      KC_TRNS,    KC_TRNS,  KC_DLR,   KC_LPRN,      KC_RPRN,      KC_GRAVE,
+      KC_TRNS,    KC_PERC,  KC_CIRC,  KC_LBRACKET,  KC_RBRACKET,  KC_TILD,  KC_TRNS,
+      KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,      KC_TRNS,
+
+                                                                RGB_MOD,  KC_TRNS,
+                                                                          KC_TRNS,
+                                                      RGB_VAD,  RGB_VAI,  KC_TRNS,
+
+      // right hand
+      KC_TRNS,  KC_F6,    KC_F7,       KC_F8,       KC_F9,        KC_F10,       KC_F11,
+      KC_TRNS,  KC_TRNS,  KC_LPRN,     KC_RPRN,     KC_LBRACKET,  KC_RBRACKET,  KC_F12,
+                KC_TRNS,  UC(0x00E5),  UC(0x00E4),  UC(0x00F6),      KC_TRNS,      KC_TRNS,
+      KC_TRNS,  KC_TRNS,  UC(0x00C5),  UC(0x00C4),  UC(0x00D6),      KC_BSLASH,    KC_TRNS,
+                          KC_TRNS,     KC_TRNS,     KC_TRNS,      KC_EQUAL,     KC_TRNS,
+
+      RGB_TOG,  RGB_SLD,
+      KC_TRNS,
+      KC_TRNS,  RGB_HUD,  RGB_HUI
+  ),
+
+  [2] = LAYOUT_ergodox(
+      // left hand
+      KC_TRNS,  KC_TRNS,  KC_TRNS,     KC_TRNS,     KC_TRNS,      KC_TRNS,  KC_TRNS,
+      KC_TRNS,  KC_TRNS,  KC_TRNS,     KC_MS_UP,    KC_TRNS,      KC_TRNS,  KC_TRNS,
+      KC_TRNS,  KC_TRNS,  KC_MS_LEFT,  KC_MS_DOWN,  KC_MS_RIGHT,  KC_TRNS,  
+      KC_TRNS,  KC_TRNS,  KC_TRNS,     KC_TRNS,     KC_TRNS,      KC_TRNS,  KC_TRNS,
+      KC_TRNS,  KC_TRNS,  KC_TRNS,     KC_TRNS,     KC_TRNS,
+
+                                                            KC_TRNS,  KC_TRNS,
+                                                                      KC_TRNS,  
+                                                  KC_TRNS,  KC_TRNS,  KC_TRNS,
+      
+      // right hand
+      KC_TRNS,  KC_TRNS,   KC_TRNS,     KC_TRNS,            KC_TRNS,        KC_TRNS,  TO_WIN,
+      KC_TRNS,  KC_TRNS,   KC_TRNS,     KC_TRNS,            KC_TRNS,        KC_TRNS,  TO_MAC,
+                KC_LEFT,   KC_DOWN,     KC_UP,              KC_RIGHT,       KC_TRNS,  TO_LINUX,
+      KC_TRNS,  KC_TRNS,   KC_MS_BTN1,  KC_MS_BTN2,         KC_TRNS,        KC_TRNS,  KC_TRNS,
+                           KC_TRNS,     KC_AUDIO_VOL_DOWN,  KC_AUDIO_MUTE,  KC_TRNS,  KC_TRNS,
+      
+      KC_TRNS,  KC_TRNS,
+      KC_TRNS,  
+      KC_TRNS,  KC_TRNS,KC_TRNS
+  ),
 
 };
 
@@ -47,20 +119,42 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    // dynamically generate these.
-    case EPRM:
-      if (record->event.pressed) {
+  if (record->event.pressed) {
+    switch (keycode) {
+      // dynamically generate these.
+      case EPRM:
         eeconfig_init();
-      }
-      return false;
-      break;
-    case RGB_SLD:
-      if (record->event.pressed) {
+        return false;
+        break;
+      case RGB_SLD:
         rgblight_mode(1);
-      }
-      return false;
-      break;
+        return false;
+        break;
+      case AA:
+        send_unicode_hex_string("00E5 30CE 0CA0");
+        return false;
+        break;
+      case AE:
+        send_unicode_hex_string("00E5 30CE 0CA0");
+        return false;
+        break;
+      case OSLH:
+        SEND_STRING("This is a string");
+        return false;
+        break;
+      case TO_LINUX:
+        set_unicode_input_mode(UC_LNX);
+        return false;
+        break;
+      case TO_MAC:
+        set_unicode_input_mode(UC_OSX);
+        return false;
+        break;
+      case TO_WIN:
+        set_unicode_input_mode(UC_WIN);
+        return false;
+        break;
+    }
   }
   return true;
 }

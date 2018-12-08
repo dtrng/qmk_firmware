@@ -2,3 +2,4 @@
 # See rules at https://docs.qmk.fm/#/config_options?id=the-rulesmk-file
   
 AUTO_SHIFT_ENABLE = yes
+UNICODE_ENABLE = yes
